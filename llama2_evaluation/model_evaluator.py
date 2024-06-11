@@ -186,8 +186,8 @@ class Model_Evaluator:
         Model_Evaluator._evaluate_classifications(AITA_classes, correct_AITA_classes, classification_output_files)
 
         # evaluate justifications
-        justification_output_files = output_files[3:]
-        Model_Evaluator._evaluate_justifications(submission_texts, predictions, references, justification_output_files)
+        #justification_output_files = output_files[3:]
+        #Model_Evaluator._evaluate_justifications(submission_texts, predictions, references, justification_output_files)
 
     def _evaluate_classifications(AITA_classes, correct_AITA_classes, output_files):
         '''
@@ -228,10 +228,12 @@ class Model_Evaluator:
         # get confusion matrix and save it to provided output
         cm = confusion_matrix(y_true, y_pred, labels=class_names)
         plt.figure(figsize=(8, 6))
-        sns.heatmap(cm, annot=True, fmt="d", cmap="Blues", xticklabels=class_names, yticklabels=class_names)
+        sns.heatmap(cm, annot=True, fmt="d", cmap="Blues", xticklabels=class_names, yticklabels=class_names, annot_kws={"size": 28})  # Increase font size with annot_kws
         plt.title(f'{output_files[1][0]}')
-        plt.xlabel('Predicted')
-        plt.ylabel('True')
+        plt.xlabel('Predicted', fontsize=28)  # Increase x-axis label font size
+        plt.ylabel('True', fontsize=28)  # Increase y-axis label font size
+        plt.xticks(fontsize=28)  # Increase x-tick label font size
+        plt.yticks(fontsize=28)  # Increase y-tick label font size
         plt.savefig(f"{output_files[1][1]}")
         print('Confusion matrix plot written to', output_files[1][1])
 

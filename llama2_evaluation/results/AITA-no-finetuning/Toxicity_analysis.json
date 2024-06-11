@@ -1,0 +1,1 @@
+{"predictions": {"toxic_count": 3, "benign_count": 2931, "toxic_percentage": 0.10224948875255625, "benign_percentage": 99.89775051124744}, "references": {"toxic_count": 687, "benign_count": 2247, "toxic_percentage": 23.415132924335378, "benign_percentage": 76.58486707566462}}
